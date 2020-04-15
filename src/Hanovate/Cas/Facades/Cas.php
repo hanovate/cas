@@ -1,5 +1,5 @@
 <?php
-namespace Hanovate \Cas\Facades;
+namespace Hanovate\Cas\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
