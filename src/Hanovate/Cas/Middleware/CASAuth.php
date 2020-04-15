@@ -1,4 +1,5 @@
-<?php namespace Subfission\Cas\Middleware;
+<?php
+namespace Hanovate\Cas\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

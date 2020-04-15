@@ -1,4 +1,5 @@
-<?php namespace Subfission\Cas;
+<?php
+namespace Hanovate\Cas;
 
 use Illuminate\Support\ServiceProvider;
 

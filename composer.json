@@ -1,12 +1,11 @@
 {
-  "name": "subfission/cas",
-  "description": "Adds CAS support to Laravel 5.x, 6.x, & 7.x",
+  "name": "hanovate/cas",
+  "description": "Adds CAS support to Laravel 7.x",
   "keywords": [
     "CAS",
     "phpCAS",
     "SSO",
     "laravel",
-    "laravel 6",
     "laravel 7"
   ],
   "license": "MIT",
@@ -14,37 +13,42 @@
     {
       "name": "subfission",
       "role": "Developer"
+    },
+    {
+      "name": "Michael Han",
+      "email": "mhan@hanovate.com",
+      "role": "Developer"
     }
   ],
   "require": {
     "php": ">=7.2.0",
     "illuminate/support": "^6.0|^7.0",
-    "apereo/phpcas": "^1.3"
+    "hanovate/phpcas": "^1.3"
   },
   "require-dev": {
     "phpunit/phpunit": "^8.0"
   },
   "autoload": {
     "psr-4": {
-      "Subfission\\Cas\\": "src/Subfission/Cas/"
+      "Hanovate\\Cas\\": "src/Hanovate/Cas/"
     },
     "files": [
-      "src/Subfission/Cas/functions.php"
+      "src/Hanovate/Cas/functions.php"
     ]
   },
   "autoload-dev": {
     "psr-4": {
-      "Subfission\\Cas\\Tests\\": "tests"
+      "Hanovate\\Cas\\Tests\\": "tests"
     }
   },
   "minimum-stability": "stable",
   "extra": {
     "laravel": {
       "providers": [
-        "Subfission\\Cas\\CasServiceProvider"
+        "Hanovate\\Cas\\CasServiceProvider"
       ],
       "aliases": {
-        "Cas": "Subfission\\Cas\\Facades\\Cas"
+        "Cas": "Hanovate\\Cas\\Facades\\Cas"
       }
     }
   }
