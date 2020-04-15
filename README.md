@@ -29,25 +29,7 @@ $ composer require hanovate/cas
     }
 ```
 
-## 3. Add the following two lines to your ./config/app.php
-
-```
-    'providers' => [
-        ...
-        Hanovate\Cas\CasServiceProvider::class,
-        ...
-    ];
-
-    ...
-
-    'aliases' => [
-        ...
-        'Cas' => Hanovate\Cas\Facades\Cas::class,
-        ...
-    ];
-```
-
-## 4. Add the following environment parameters in your ./.env
+## 3. Add the following environment parameters in your ./.env
 
 ```
 CAS_HOSTNAME=login.myschool.edu
