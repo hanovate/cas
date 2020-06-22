@@ -47,6 +47,8 @@ CAS_VERSION should be set to the CAS protocol version, not the CAS server versio
 
 CAS_REDIRECT_PATH is the default address to go after the user is authenticated on the CAS server.
 
+## 4. Run 'artisan vendor:publish' command and select ''cas''.
+
 
 USAGE
 -----
