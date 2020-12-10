@@ -1,12 +1,13 @@
 {
   "name": "hanovate/cas",
-  "description": "Adds CAS support to Laravel 7.x",
+  "description": "Adds CAS support to Laravel 7.x or 8.x",
   "keywords": [
     "CAS",
     "phpCAS",
     "SSO",
     "laravel",
-    "laravel 7"
+    "laravel 7",
+    "laravel 8"
   ],
   "license": "MIT",
   "authors": [
