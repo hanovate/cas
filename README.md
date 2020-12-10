@@ -1,12 +1,14 @@
-CAS client for Laravel 7
-========================
+CAS client for Laravel 7|8
+==========================
 
 This is a fork of subfission/cas updated to utilize Laravel's session management methods.
 
 Refer to subfission/cas documentation for more details.
-This includes installation and usage procedures which were tested on Laravel 7.6.1 as of 2020-04-15.
+This includes installation and usage procedures.
 
-Simple CAS Authentication for Laravel 7.x.
+Simple CAS Authentication for Laravel 7.x and 8.x.
+
+Tested on Laravel 7.6.1 as of 2020-04-15, Laravel 8.18.1 as of 2020-12-10
 
 
 INSTALLATION
