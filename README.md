@@ -89,7 +89,7 @@ Route::middleware(['cas.auth'])->group(function() {
 
     Route::get('/auth/logout',function() {
         return cas()->logout(null,'https://myapp.myschool.edu/home-guest');
-
+	});
 });
 ...
 ```
