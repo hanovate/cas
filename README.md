@@ -66,30 +66,33 @@ In your route file (e.g. ./routes/web.php), the web middleware cas.auth can be u
 ```
 ...
 
-Route::get('/home-guest',function() {
-    if (cas()->isAuthenticated())
-        echo 'authenticated<br>'; 
-    else
-        echo 'not authenticated<br>';
-    echo '<a href="/main">login</a>';
+Route::get('/',function() {
+    if (cas()->isAuthenticated()) {
+		echo 'authenticated<br>'; 
+		echo 'click here to go to <a href="'.route('main.home').'">home</a><br>';
+        echo 'user: '.cas()->user().'<br>';
+		echo '<a href="'.route('main.logout').'">logout</a>';
+	} else {
+		echo 'not authenticated<br>';
+		echo '<a href="'.route('main.login').'">login</a>';
+	}
 });
 
-...
+Route::get('/login',function() {
+	cas()->authenticate();
+})->name('main.login');
 
 Route::middleware(['cas.auth'])->group(function() {
 
-    Route::get('/main-for-logged-in-user', function() {
-        if (cas()->isAuthenticated())
-            echo 'authenticated<br>';
-        else
-            echo 'not authenticated<br>'; // this line won't be reached as this route is inside the middleware
+	Route::get('/main', function() {
+		echo 'This is a main home page<br>';
         echo 'user: '.cas()->user().'<br>';
-        echo '<a href="/auth/logout">logout</a>';
-    });
+        echo '<a href="'.route('main.logout').'">logout</a>';
+    })->name('main.home');
 
     Route::get('/auth/logout',function() {
-        return cas()->logout(null,'https://myapp.myschool.edu/home-guest');
-	});
+        return cas()->logout(null,'https://auth1.unm.edu/');
+	})->name('main.logout');
 });
 ...
 ```
