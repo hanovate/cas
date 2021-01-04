@@ -70,7 +70,7 @@ Route::get('/',function() {
     if (cas()->isAuthenticated()) {
 		echo 'authenticated<br>'; 
 		echo 'click here to go to <a href="'.route('main.home').'">home</a><br>';
-        echo 'user: '.cas()->user().'<br>';
+		echo 'user: '.cas()->user().'<br>';
 		echo '<a href="'.route('main.logout').'">logout</a>';
 	} else {
 		echo 'not authenticated<br>';
@@ -86,12 +86,12 @@ Route::middleware(['cas.auth'])->group(function() {
 
 	Route::get('/main', function() {
 		echo 'This is a main home page<br>';
-        echo 'user: '.cas()->user().'<br>';
-        echo '<a href="'.route('main.logout').'">logout</a>';
+		echo 'user: '.cas()->user().'<br>';
+		echo '<a href="'.route('main.logout').'">logout</a>';
     })->name('main.home');
 
     Route::get('/auth/logout',function() {
-        return cas()->logout(null,'https://auth1.unm.edu/');
+		return cas()->logout(null,'https://auth1.unm.edu/');
 	})->name('main.logout');
 });
 ...
