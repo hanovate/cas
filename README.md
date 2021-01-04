@@ -51,6 +51,12 @@ CAS_REDIRECT_PATH is the default address to go after the user is authenticated o
 
 ## 4. Run 'artisan vendor:publish' command and select ''cas''.
 
+```bash
+$ ./artisan vendor:publish --tag=cas
+Copied File [/vendor/hanovate/cas/src/config/config.php] To [/config/cas.php]
+Publishing complete.
+```
+
 
 USAGE
 -----
