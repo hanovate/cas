@@ -49,7 +49,7 @@ CAS_VERSION should be set to the CAS protocol version, not the CAS server versio
 
 CAS_REDIRECT_PATH is the default address to go after the user is authenticated on the CAS server.
 
-## 4. Run 'artisan vendor:publish' command and select ''cas''.
+## 4. Run 'artisan vendor:publish' command and select ''cas''
 
 ```bash
 $ ./artisan vendor:publish --tag=cas
@@ -61,6 +61,31 @@ Publishing complete.
 USAGE
 -----
 
+In order to define Gates inside ./app/Http/Providers/AuthServiceProvider.php, add the following lines:
+
+```
+...
+use Illuminate\Support\Facades\Auth;
+use App\Auth\Guards\CasGuard;
+...
+    
+    ...
+    public function boot()
+    {
+        $this->registerPolicies();
+
+        Auth::extend('cas',function($app, $name, array $config) {
+            return new CasGuard();
+        });
+
+        Gate::define('request',function($user) {
+            return true;
+        });
+    }
+
+...
+```
+
 In your route file (e.g. ./routes/web.php), the web middleware cas.auth can be used for the simple authentication.
 
 ```
@@ -68,31 +93,32 @@ In your route file (e.g. ./routes/web.php), the web middleware cas.auth can be u
 
 Route::get('/',function() {
     if (cas()->isAuthenticated()) {
-		echo 'authenticated<br>'; 
-		echo 'click here to go to <a href="'.route('main.home').'">home</a><br>';
-		echo 'user: '.cas()->user().'<br>';
-		echo '<a href="'.route('main.logout').'">logout</a>';
-	} else {
-		echo 'not authenticated<br>';
-		echo '<a href="'.route('main.login').'">login</a>';
-	}
+        echo 'authenticated<br>'; 
+        echo 'click here to go to <a href="'.route('main.home').'">home</a><br>';
+        echo 'user: '.cas()->user().'<br>';
+        echo '<a href="'.route('main.logout').'">logout</a>';
+    } else {
+        echo 'not authenticated<br>';
+        echo '<a href="'.route('main.login').'">login</a>';
+    }
 });
 
+
 Route::get('/login',function() {
-	cas()->authenticate();
+    cas()->authenticate();
 })->name('main.login');
 
-Route::middleware(['cas.auth'])->group(function() {
 
-	Route::get('/main', function() {
-		echo 'This is a main home page<br>';
-		echo 'user: '.cas()->user().'<br>';
-		echo '<a href="'.route('main.logout').'">logout</a>';
+Route::middleware(['cas.auth'])->group(function() {
+    Route::get('/main', function() {
+        echo 'This is a main home page<br>';
+        echo 'user: '.cas()->user().'<br>';
+        echo '<a href="'.route('main.logout').'">logout</a>';
     })->name('main.home');
 
     Route::get('/auth/logout',function() {
-		return cas()->logout(null,'https://auth1.unm.edu/');
-	})->name('main.logout');
+        return cas()->logout(null,'https://auth1.unm.edu/');
+    })->name('main.logout');
 });
 ...
 ```

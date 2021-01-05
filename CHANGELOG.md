@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [3.1.3] - 2021-01-04 MH
 ### Changed
 - add a vendor:publish example in README.md
+- add custom guard
 
 ## [3.1.2] - 2020-12-10 MH
 ### Changed

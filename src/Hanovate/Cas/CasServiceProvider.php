@@ -22,6 +22,8 @@ class CasServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../../config/config.php' => config_path('cas.php'),
+            __DIR__ . '/../../config/auth.php' => config_path('auth.php'),
+            __DIR__ . '/../../config/CasGuard.php' => app_path('Auth/Guards/CasGuard.php'),
         ], 'cas');
     }
 
