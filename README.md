@@ -49,9 +49,11 @@ CAS_VERSION should be set to the CAS protocol version, not the CAS server versio
 
 CAS_REDIRECT_PATH is the default address to go after the user is authenticated on the CAS server.
 
-## 4. Run 'artisan vendor:publish' command and select ''cas''
+## 4. Run 'artisan vendor:publish' command and select ''cas''.  If you haven't modified auth.php, then simply delete it and start with the one from this package.
 
 ```bash
+$ rm config/auth.php
+
 $ ./artisan vendor:publish --tag=cas
 Copied File [/vendor/hanovate/cas/src/config/config.php] To [/config/cas.php]
 Copied File [/vendor/hanovate/cas/src/config/auth.php] To [/config/auth.php]
