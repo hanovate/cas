@@ -54,7 +54,11 @@ CAS_REDIRECT_PATH is the default address to go after the user is authenticated o
 ```bash
 $ ./artisan vendor:publish --tag=cas
 Copied File [/vendor/hanovate/cas/src/config/config.php] To [/config/cas.php]
+Copied File [/vendor/hanovate/cas/src/config/auth.php] To [/config/auth.php]
+Copied File [/vendor/hanovate/cas/src/config/CasGuard.php] To [/app/Auth/Guards/CasGuard.php]
 Publishing complete.
+
+$ composer dump-autoload
 ```
 
 
